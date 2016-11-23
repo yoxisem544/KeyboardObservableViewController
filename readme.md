@@ -6,6 +6,15 @@ First, import `UIKeyboardObservableViewController` to your project
 
 Then goto place you want to observe keyboard, and change subclass `UIViewController` to `UIKeyboardObservableViewController`.
 
+Then remember to call super.viewDidLoad() in viewDidLoad().
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+}
+```
+
 Then override these 2 methods.
 
 ```swift
