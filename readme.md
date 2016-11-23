@@ -1,6 +1,10 @@
 #UIKeyboardObervableViewController
 a view controller help you to observe keyboard show and hide.
 
+#Requirement
+- swift 3
+- xcode 8.0 
+
 ## How to use it
 First, import `UIKeyboardObservableViewController` to your project
 
