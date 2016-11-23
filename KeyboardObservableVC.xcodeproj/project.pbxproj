@@ -14,6 +14,7 @@
 		63296A3F1DE535A200233D93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63296A3D1DE535A200233D93 /* LaunchScreen.storyboard */; };
 		63296A4A1DE535A200233D93 /* KeyboardObservableVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63296A491DE535A200233D93 /* KeyboardObservableVCTests.swift */; };
 		63296A551DE535A200233D93 /* KeyboardObservableVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63296A541DE535A200233D93 /* KeyboardObservableVCUITests.swift */; };
+		63296A631DE535D000233D93 /* UIKeyboardObservableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63296A621DE535D000233D93 /* UIKeyboardObservableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		63296A501DE535A200233D93 /* KeyboardObservableVCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardObservableVCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63296A541DE535A200233D93 /* KeyboardObservableVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservableVCUITests.swift; sourceTree = "<group>"; };
 		63296A561DE535A200233D93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63296A621DE535D000233D93 /* UIKeyboardObservableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKeyboardObservableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				63296A341DE535A200233D93 /* AppDelegate.swift */,
 				63296A361DE535A200233D93 /* ViewController.swift */,
+				63296A621DE535D000233D93 /* UIKeyboardObservableViewController.swift */,
 				63296A381DE535A200233D93 /* Main.storyboard */,
 				63296A3B1DE535A200233D93 /* Assets.xcassets */,
 				63296A3D1DE535A200233D93 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				63296A371DE535A200233D93 /* ViewController.swift in Sources */,
 				63296A351DE535A200233D93 /* AppDelegate.swift in Sources */,
+				63296A631DE535D000233D93 /* UIKeyboardObservableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

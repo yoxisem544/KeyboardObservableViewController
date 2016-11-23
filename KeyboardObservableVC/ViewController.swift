@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIKeyboardObservableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,14 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func keyboardWillShow(with keyboardRect: CGRect) {
+        // adjust inset
+    }
+    
+    override func keyboardWillHide() {
+        // adjust inset
+    }
 
 }
 
