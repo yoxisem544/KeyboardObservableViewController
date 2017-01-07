@@ -10,11 +10,16 @@ import UIKit
 
 public class UIKeyboardObservableViewController : UIViewController {
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // register keyboard notificatoin first
         registerKeyboardNotification()
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        removeKeyboardObservers()
     }
     
     private func registerKeyboardNotification() {
