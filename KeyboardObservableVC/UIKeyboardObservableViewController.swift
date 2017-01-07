@@ -16,31 +16,30 @@ public class UIKeyboardObservableViewController : UIViewController {
         registerKeyboardNotification()
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        removeKeyboardObservers()
-    }
-    
     private func registerKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardRect = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        keyboardWillShow(with: keyboardRect)
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
+        keyboardWillShow(with: keyboardRect, with: duration, with: curve)
     }
     
-    public func keyboardWillShow(with keyboardRect: CGRect) {
+    public func keyboardWillShow(with keyboardRect: CGRect, with duration: Double, with curve: Int) {
         
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        keyboardWillHide()
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
+        keyboardWillHide(with: keyboardRect, with: duration, with: curve)
     }
     
-    public func keyboardWillHide() {
+    public func keyboardWillHide(with keyboardRect: CGRect, with duration: Double, with curve: Int) {
         
     }
     
