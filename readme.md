@@ -10,14 +10,11 @@ First, import `UIKeyboardObservableViewController` to your project
 
 Then goto place you want to observe keyboard, and change subclass `UIViewController` to `UIKeyboardObservableViewController`.
 
-Then remember to call super.viewDidLoad() in viewDidLoad().
+Notification wll be setup when `viewDidAppear`, and will be removed when `viewDidDisappear`.
 
-```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-}
-```
+You don't need to do anything but remember to call `super.viewDidAppear` and `super.viewDidDisappear`.
+
+Also, no need to care about removing observer when deinit is called. I handled it for you :)
 
 Then override these 2 methods.
 
