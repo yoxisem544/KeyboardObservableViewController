@@ -16,6 +16,12 @@ public class UIKeyboardObservableViewController : UIViewController {
         registerKeyboardNotification()
     }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        removeKeyboardObservers()
+    }
+    
     private func registerKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -25,10 +31,10 @@ public class UIKeyboardObservableViewController : UIViewController {
         guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
         guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
-        keyboardWillShow(with: keyboardRect, with: duration, with: curve)
+        keyboardWillShow(with: keyboardRect, duration: duration, animationCurve: curve)
     }
     
-    public func keyboardWillShow(with keyboardRect: CGRect, with duration: Double, with curve: Int) {
+    public func keyboardWillShow(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: Int) {
         
     }
     
@@ -36,10 +42,10 @@ public class UIKeyboardObservableViewController : UIViewController {
         guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
         guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
-        keyboardWillHide(with: keyboardRect, with: duration, with: curve)
+        keyboardWillHide(with: keyboardRect, duration: duration, animationCurve: curve)
     }
     
-    public func keyboardWillHide(with keyboardRect: CGRect, with duration: Double, with curve: Int) {
+    public func keyboardWillHide(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: Int) {
         
     }
     
