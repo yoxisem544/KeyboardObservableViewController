@@ -30,22 +30,22 @@ public class UIKeyboardObservableViewController : UIViewController {
     @objc private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
-        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
+        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else { return }
         keyboardWillShow(with: keyboardRect, duration: duration, animationCurve: curve)
     }
     
-    public func keyboardWillShow(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: Int) {
+    public func keyboardWillShow(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: UInt) {
         
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         guard let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
-        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue else { return }
+        guard let curve = (notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else { return }
         keyboardWillHide(with: keyboardRect, duration: duration, animationCurve: curve)
     }
     
-    public func keyboardWillHide(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: Int) {
+    public func keyboardWillHide(with keyboardRect: CGRect, duration: TimeInterval, animationCurve: UInt) {
         
     }
     
