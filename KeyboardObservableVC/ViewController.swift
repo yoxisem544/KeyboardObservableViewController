@@ -19,14 +19,14 @@ class ViewController: UIKeyboardObservableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func keyboardWillShow(with keyboardRect: CGRect) {
-        // adjust inset
-    }
-    
-    override func keyboardWillHide() {
-        // adjust inset
-    }
+
+  override func keyboardWillShow(with keyboardRect: CGRect, duration: Double, animationCurveOption: UIViewAnimationOptions) {
+
+  }
+
+  override func keyboardWillHide(duration: Double, animationCurveOption: UIViewAnimationOptions) {
+
+  }
 
 }
 

@@ -34,10 +34,10 @@ public class UIKeyboardObservableViewController : UIViewController {
       let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
       else { return }
 
-    keyboardWillShow(with: keyboardRect, duration: duration, curve: curve)
+    keyboardWillShow(with: keyboardRect, duration: duration.doubleValue, animationCurveOption: UIViewAnimationOptions(rawValue: curve.uintValue))
   }
 
-  public func keyboardWillShow(with keyboardRect: CGRect, duration: NSNumber, curve: NSNumber) {
+  public func keyboardWillShow(with keyboardRect: CGRect, duration: Double, animationCurveOption: UIViewAnimationOptions) {
 
   }
 
@@ -47,10 +47,10 @@ public class UIKeyboardObservableViewController : UIViewController {
       let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
       else { return }
 
-    keyboardWillHide(duration: duration, curve: curve)
+    keyboardWillHide(duration: duration.doubleValue, animationCurveOption: UIViewAnimationOptions(rawValue: curve.uintValue))
   }
 
-  public func keyboardWillHide(duration: NSNumber, curve: NSNumber) {
+  public func keyboardWillHide(duration: Double, animationCurveOption: UIViewAnimationOptions) {
 
   }
 
