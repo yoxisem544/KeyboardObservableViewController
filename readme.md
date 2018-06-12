@@ -19,11 +19,11 @@ Also, no need to care about removing observer when deinit is called. I handled i
 Then override these 2 methods.
 
 ```swift
-public func keyboardWillShow(with keyboardRect: CGRect, duration: Double, animationCurveOption: UIViewAnimationOptions) {
+public func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIViewAnimationOptions, duration: Double) {
 
 }
 
-public func keyboardWillHide(duration: Double, animationCurveOption: UIViewAnimationOptions) {
+public func keyboardWillHide(withKeyboard animationCurve: UIViewAnimationOptions, duration: Double) {
 
 }
 ```
