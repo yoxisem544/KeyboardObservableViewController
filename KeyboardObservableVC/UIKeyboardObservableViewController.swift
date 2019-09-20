@@ -10,56 +10,57 @@ import UIKit
 
 public class UIKeyboardObservableViewController : UIViewController {
 
-  public override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    registerKeyboardNotification()
-  }
+        registerKeyboardNotification()
+    }
 
-  public override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-    removeKeyboardObservers()
-  }
+        removeKeyboardObservers()
+    }
 
-  private func registerKeyboardNotification() {
-    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-  }
+    private func registerKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 
-  @objc private func keyboardWillShow(_ notification: Notification) {
-    guard
-      let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-      let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
-      let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-      else { return }
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard
+            let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
+            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            else { return }
 
-    keyboardWillShow(withKeyboard: keyboardRect, animationCurve: UIViewAnimationOptions(rawValue: curve.uintValue), duration: duration.doubleValue)
-  }
+        keyboardWillShow(withKeyboard: keyboardRect, animationCurve: UIView.AnimationOptions(rawValue: curve.uintValue), duration: duration.doubleValue)
+    }
 
-  public func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIViewAnimationOptions, duration: Double) {
+    public func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIView.AnimationOptions, duration: Double) {
 
-  }
+    }
 
-  @objc private func keyboardWillHide(_ notification: Notification) {
-    guard
-      let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
-      let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-      else { return }
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        guard
+            let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
+            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            else { return }
 
-    keyboardWillHide(withKeyboard: UIViewAnimationOptions(rawValue: curve.uintValue), duration: duration.doubleValue)
-  }
+        keyboardWillHide(withKeyboard: keyboardRect, animationCurve: UIView.AnimationOptions(rawValue: curve.uintValue), duration: duration.doubleValue)
+    }
 
-  public func keyboardWillHide(withKeyboard animationCurve: UIViewAnimationOptions, duration: Double) {
+    public func keyboardWillHide(withKeyboard rect: CGRect, animationCurve: UIView.AnimationOptions, duration: Double) {
 
-  }
+    }
 
-  public func removeKeyboardObservers() {
-    NotificationCenter.default.removeObserver(self)
-  }
+    public func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
 
-  deinit {
-    removeKeyboardObservers()
-  }
+    deinit {
+        removeKeyboardObservers()
+    }
 
 }

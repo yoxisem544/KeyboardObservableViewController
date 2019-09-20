@@ -20,13 +20,13 @@ class ViewController: UIKeyboardObservableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-  override func keyboardWillShow(with keyboardRect: CGRect, duration: Double, animationCurveOption: UIViewAnimationOptions) {
+    override func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIView.AnimationOptions, duration: Double) {
+        
+    }
 
-  }
+    override func keyboardWillHide(withKeyboard rect: CGRect, animationCurve: UIView.AnimationOptions, duration: Double) {
 
-  override func keyboardWillHide(duration: Double, animationCurveOption: UIViewAnimationOptions) {
-
-  }
+    }
 
 }
 
