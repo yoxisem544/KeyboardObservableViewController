@@ -2,8 +2,8 @@
 a view controller help you to observe keyboard show and hide.
 
 #Requirement
-- swift 3
-- xcode 8.0 
+- swift 5
+- xcode 11.0
 
 ## How to use it
 First, import `UIKeyboardObservableViewController` to your project
@@ -19,12 +19,17 @@ Also, no need to care about removing observer when deinit is called. I handled i
 Then override these 2 methods.
 
 ```swift
-public func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIViewAnimationOptions, duration: Double) {
+class YourViewController: UIKeyboardObservableViewController {
 
-}
+  /** your code... */
 
-public func keyboardWillHide(withKeyboard animationCurve: UIViewAnimationOptions, duration: Double) {
+  public func keyboardWillShow(withKeyboard rect: CGRect, animationCurve: UIViewAnimationOptions, duration: Double) {
 
+  }
+
+  public func keyboardWillHide(withKeyboard animationCurve: UIViewAnimationOptions, duration: Double) {
+
+  }
 }
 ```
 
